@@ -1,0 +1,26 @@
+{
+  "name": "gatsby-blog",
+  "version": "1.0.0",
+  "description": "Playing around with gatsby",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rvgpl/gatsby-blog.git"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "author": "rvgpl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rvgpl/gatsby-blog/issues"
+  },
+  "homepage": "https://github.com/rvgpl/gatsby-blog#readme",
+  "dependencies": {
+    "gatsby": "^1.0.7",
+    "gatsby-link": "^1.0.8"
+  }
+}
