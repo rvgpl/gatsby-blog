@@ -4,7 +4,9 @@
   "description": "Playing around with gatsby",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gatsby develop",
+    "build": "gatsby build",
+    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public ."
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,14 @@
   "homepage": "https://github.com/rvgpl/gatsby-blog#readme",
   "dependencies": {
     "gatsby": "^1.0.7",
-    "gatsby-link": "^1.0.8"
+    "gatsby-link": "^1.0.8",
+    "react": "^15.6.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.2.0",
+    "eslint-config-airbnb": "^15.0.2",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.1.0"
   }
 }
