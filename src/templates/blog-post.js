@@ -2,21 +2,23 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import get from 'lodash/get';
 import * as PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Container from '../styled/container';
 
 const BlogPostTemplate = (props) => {
   const post = props.data.markdownRemark;
   const siteTitle = get(props, 'data.site.siteMetadata.title');
 
   return (
-    <div>
+    <Container>
       <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
-      <h1>
+      <Title>
         {post.frontmatter.title}
-      </h1>
-      <div
+      </Title>
+      <Article
       // eslint-disable-next-line
       dangerouslySetInnerHTML={{ __html: post.html }}  />
-    </div>
+    </Container>
   );
 };
 
@@ -43,5 +45,20 @@ export const pageQuery = graphql`
         date
       }
     }
+  }
+`;
+
+const Title = styled.h1`
+  font-size: 4rem;
+`;
+const Article = styled.article`
+  font-size: 1.8rem;
+  line-height: 1.5;
+  padding-bottom: 5rem;
+  
+  blockquote {
+    border-left: 0.5rem solid black;
+    margin-left: 0;
+    padding-left: 1rem;
   }
 `;
