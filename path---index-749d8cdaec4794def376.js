@@ -1,0 +1,2 @@
+webpackJsonp([6],{"./node_modules/json-loader/index.js!./.cache/json/index.json":function(e,t){e.exports={data:{site:{siteMetadata:{title:"Gatsby Blog"}},allMarkdownRemark:{edges:[{node:{frontmatter:{path:"/new-beginnings/",title:"New Beginnings"}}},{node:{frontmatter:{path:"/test-markdown/",title:"Test Markdown"}}}]}},pathContext:{}}}});
+//# sourceMappingURL=path---index-749d8cdaec4794def376.js.map
