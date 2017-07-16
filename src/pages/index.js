@@ -2,6 +2,8 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import get from 'lodash/get';
 import Link from 'gatsby-link';
+import styled from 'styled-components';
+import Container from '../styled/container';
 
 const Home = (props) => {
   const pageLinks = [];
@@ -13,11 +15,11 @@ const Home = (props) => {
       const title = get(post, 'node.frontmatter.title') || post.node.path;
 
       const pageLink = (
-        <li key={title}>
+        <BlogListItem key={title}>
           <Link to={post.node.frontmatter.path}>
             {title}
           </Link>
-        </li>
+        </BlogListItem>
       );
 
       pageLinks.push(pageLink);
@@ -25,12 +27,12 @@ const Home = (props) => {
   });
 
   return (
-    <div>
+    <Container>
       <Helmet title={siteTitle} />
-      <ul>
+      <BlogList>
         {pageLinks}
-      </ul>
-    </div>
+      </BlogList>
+    </Container>
   );
 };
 
@@ -55,5 +57,28 @@ export const pageQuery = graphql`
         }
       }
     }
+  }
+`;
+
+const BlogList = styled.ul`
+  padding: 0;
+  list-style: none;
+`;
+
+const BlogListItem = styled.li`
+  padding: 1.6rem 1rem;
+  font-size: 2rem;
+  border-bottom: 1px solid #666;
+  font-style: italic;
+  color: #666;
+  cursor: pointer;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background-color: tomato;
+    color: white;
   }
 `;
