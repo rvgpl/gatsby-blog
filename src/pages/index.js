@@ -69,8 +69,6 @@ const BlogListItem = styled.li`
   padding: 1.6rem 1rem;
   font-size: 2rem;
   border-bottom: 1px solid #666;
-  font-style: italic;
-  color: #666;
   cursor: pointer;
 
   &:last-child {
@@ -78,7 +76,7 @@ const BlogListItem = styled.li`
   }
 
   &:hover {
-    background-color: tomato;
+    background-color: black;
     color: white;
   }
 `;
