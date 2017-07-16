@@ -7,7 +7,7 @@ import Container from '../styled/container';
 const Header = () =>
   (<HeaderWrapper>
     <Container>
-      <Title>Gatsby Blog</Title>
+      <Title to={'/'}>Gatsby Blog</Title>
       <Nav>
         <NavItem to={'/'}> Home </NavItem>
         <NavItem to={'/about'}> About </NavItem>
@@ -16,7 +16,7 @@ const Header = () =>
   </HeaderWrapper>);
 
 // Styles
-const Title = styled.h2`
+const Title = styled(Link)`
   font-size: 2.5rem;
   line-height: 1;
   font-weight: bold;
@@ -26,7 +26,13 @@ const Title = styled.h2`
   text-transform: uppercase;
   border: 5px solid black;
   padding: 1rem;
-  
+  cursor: pointer;
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+
   @media (min-width: 800px) {
     display: inline-block;
     margin: 1rem 0;
