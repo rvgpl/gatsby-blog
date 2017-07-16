@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Gatsby Blog',
   },
+  pathPrefix: `/gatsby-blog`,
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',
