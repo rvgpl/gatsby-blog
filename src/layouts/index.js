@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import * as PropTypes from 'prop-types';
+import injectResetCSS from '../styled/reset';
 
 const Template = (props) => {
   const { location, children } = props;
@@ -32,6 +33,7 @@ const Template = (props) => {
   );
 };
 
+injectResetCSS();
 Template.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.String,
