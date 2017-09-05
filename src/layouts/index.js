@@ -1,14 +1,14 @@
-import React from 'react';
-import * as PropTypes from 'prop-types';
-import Header from '../components/Header';
-import injectResetCSS from '../styled/reset';
+import React from "react";
+import * as PropTypes from "prop-types";
+import Header from "../components/Header";
+import injectResetCSS from "../styled/reset";
 
-const Template = (props) => {
+const Template = props => {
   const { children } = props;
   return (
     <div>
       <Header />
-      { children() }
+      {children()}
     </div>
   );
 };
@@ -16,7 +16,7 @@ const Template = (props) => {
 injectResetCSS();
 
 Template.propTypes = {
-  children: PropTypes.func.isRequired,
+  children: PropTypes.func.isRequired
 };
 
 export default Template;

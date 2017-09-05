@@ -1,19 +1,18 @@
-import React from 'react';
-import Link from 'gatsby-link';
-import styled from 'styled-components';
-import Container from '../styled/container';
-
+import React from "react";
+import Link from "gatsby-link";
+import styled from "styled-components";
+import Container from "../styled/container";
 
 const Header = () =>
-  (<HeaderWrapper>
+  <HeaderWrapper>
     <Container>
-      <Title to={'/'}>Gatsby Blog</Title>
+      <Title to={"/"}>Gatsby Blog</Title>
       <Nav>
-        <NavItem to={'/'}> Home </NavItem>
-        <NavItem to={'/about'}> About </NavItem>
+        <NavItem to={"/"}> Home </NavItem>
+        <NavItem to={"/about"}> About </NavItem>
       </Nav>
     </Container>
-  </HeaderWrapper>);
+  </HeaderWrapper>;
 
 // Styles
 const Title = styled(Link)`
@@ -44,7 +43,7 @@ const HeaderWrapper = styled.header`
   background-color: white;
   border: 1px solid rgba(black, 0.3);
   overflow: hidden;
-  `;
+`;
 
 const Nav = styled.nav`
   padding: 0;

@@ -8,7 +8,8 @@
     "build": "gatsby build",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "clean": "rm -rf ./public",
-    "deploy": "npm run clean && gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "npm run clean && gatsby build --prefix-paths && gh-pages -d public",
+    "format:js": "prettier '**/*.{js,jsx}' --write"
   },
   "repository": {
     "type": "git",
@@ -47,8 +48,10 @@
   "devDependencies": {
     "eslint": "^4.2.0",
     "eslint-config-airbnb": "^15.0.2",
+    "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.1.0"
+    "eslint-plugin-react": "^7.1.0",
+    "prettier": "^1.5.3"
   }
 }

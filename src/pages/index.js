@@ -1,18 +1,18 @@
-import React from 'react';
-import Helmet from 'react-helmet';
-import get from 'lodash/get';
-import Link from 'gatsby-link';
-import styled from 'styled-components';
-import Container from '../styled/container';
+import React from "react";
+import Helmet from "react-helmet";
+import get from "lodash/get";
+import Link from "gatsby-link";
+import styled from "styled-components";
+import Container from "../styled/container";
 
-const Home = (props) => {
+const Home = props => {
   const pageLinks = [];
-  const siteTitle = get(props, 'data.site.siteMetadata.title');
-  const posts = get(props, 'data.allMarkdownRemark.edges');
+  const siteTitle = get(props, "data.site.siteMetadata.title");
+  const posts = get(props, "data.allMarkdownRemark.edges");
 
-  posts.forEach((post) => {
-    if (post.node.path !== '/404/') {
-      const title = get(post, 'node.frontmatter.title') || post.node.path;
+  posts.forEach(post => {
+    if (post.node.path !== "/404/") {
+      const title = get(post, "node.frontmatter.title") || post.node.path;
 
       const pageLink = (
         <BlogListItem key={title}>
