@@ -2,78 +2,69 @@ import React from "react";
 import Link from "gatsby-link";
 import styled from "styled-components";
 import Container from "../styled/container";
+import Logo from './Logo';
 
 const Header = () =>
   <HeaderWrapper>
-    <Container>
-      <Title to={"/"}>Gatsby Blog</Title>
+    <HeaderContainer>
+      <Link to={"/"}>
+        <Logo />
+      </Link>
       <Nav>
-        <NavItem to={"/"}> Home </NavItem>
+        <NavItem to={"/"}> Articles </NavItem>
+        <NavItem to={"/"}> Photos </NavItem>
         <NavItem to={"/about"}> About </NavItem>
       </Nav>
-    </Container>
+    </HeaderContainer>
   </HeaderWrapper>;
 
 // Styles
-const Title = styled(Link)`
-  font-size: 2.5rem;
-  line-height: 1;
-  font-weight: bold;
-  display: block;
-  margin: 1rem auto;
-  text-align: center;
-  text-transform: uppercase;
-  border: 5px solid black;
-  padding: 1rem;
-  cursor: pointer;
-
-  &:hover {
-    background-color: black;
-    color: white;
-  }
-
-  @media (min-width: 800px) {
-    display: inline-block;
-    margin: 1rem 0;
-  }
-`;
-
 const HeaderWrapper = styled.header`
-  padding: 20px;
-  background-color: white;
-  border: 1px solid rgba(black, 0.3);
-  overflow: hidden;
+  margin: 4rem auto;
 `;
 
 const Nav = styled.nav`
-  padding: 0;
+  padding: 1rem;
   list-style: none;
-  display: block;
-  margin: 1rem 4rem;
   text-align: center;
 
   @media (min-width: 800px) {
-    display: inline-block;
+    padding: 0;
+    margin: 0;
     text-align: left;
   }
 `;
 
 const NavItem = styled(Link)`
-  margin: 0 10px;
+  font-family: Lora, Georgia, serif;
+  padding: 1rem;
   font-size: 1.6rem;
   line-height: 2rem;
   font-weight: bold;
   text-decoration: none;
   display: inline-block;
-  text-transform: uppercase;
-  opacity: 0.8;
-  transition: all 0.5s;
+  transition: all 0.3s;
   color: black;
+  letter-spacing: 1px;
 
   &:hover {
-    text-decoration: underline;
-    opacity: 1;
+    color: white;
+    background-color: red;
+  }
+  @media (min-width: 800px) {
+    margin: 0 10px;
   }
 `;
 
+const HeaderContainer = styled(Container)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+
+  @media (min-width: 800px) {
+    flex-direction: row;
+  }
+
+`;
 export default Header;

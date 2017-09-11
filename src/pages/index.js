@@ -4,6 +4,8 @@ import get from "lodash/get";
 import Link from "gatsby-link";
 import styled from "styled-components";
 import Container from "../styled/container";
+import Intro from "../components/Intro";
+import SocialLinks from "../components/SocialLinks";
 
 const Home = props => {
   const pageLinks = [];
@@ -13,12 +15,16 @@ const Home = props => {
   posts.forEach(post => {
     if (post.node.path !== "/404/") {
       const title = get(post, "node.frontmatter.title") || post.node.path;
+      const date = get(post, "node.frontmatter.date");
 
       const pageLink = (
         <BlogListItem key={title}>
-          <Link to={post.node.frontmatter.path}>
-            {title}
-          </Link>
+          <PostTitle>
+            <Link to={post.node.frontmatter.path}>
+              {title}
+            </Link>
+          </PostTitle>
+          <PostDate>{date}</PostDate>
         </BlogListItem>
       );
 
@@ -29,6 +35,9 @@ const Home = props => {
   return (
     <Container>
       <Helmet title={siteTitle} />
+      <Intro />
+      <SocialLinks />
+      <hr />
       <BlogList>
         {pageLinks}
       </BlogList>
@@ -45,14 +54,16 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      limit: 2
+    ) {
       edges {
         node {
           frontmatter {
             path
-          }
-          frontmatter {
             title
+            date
           }
         }
       }
@@ -62,21 +73,26 @@ export const pageQuery = graphql`
 
 const BlogList = styled.ul`
   padding: 0;
-  list-style: none;
+  list-style-type: none;
+  margin: 6.4rem auto;
 `;
 
 const BlogListItem = styled.li`
-  padding: 1.6rem 1rem;
-  font-size: 2rem;
-  border-bottom: 1px solid #666;
-  cursor: pointer;
+  padding: 1.6rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 
-  &:last-child {
-    border-bottom: none;
-  }
+const PostTitle = styled.h3`
+  font-size: 2.4rem;
+  font-family: ${props => props.theme.primaryTypeface};
+  border-bottom: 0.4rem solid;
+  border-color: ${props => props.theme.primary};
+  margin: 0; 
+`;
 
-  &:hover {
-    background-color: black;
-    color: white;
-  }
+const PostDate = styled.time`
+  font-size: 1.4rem;
+  color: #777;
 `;

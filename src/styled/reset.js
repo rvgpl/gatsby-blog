@@ -32,6 +32,8 @@ const resetCSS = () => injectGlobal`
     background: none;
     cursor: pointer;
   }
+  @import url('https://fonts.googleapis.com/css?family=Lora:400,700');
+  
 `;
 
 export default resetCSS;
