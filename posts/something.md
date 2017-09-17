@@ -1,6 +1,6 @@
 ---
 title: Test Markdown
-date: '11th September 2017'
+date: 2017-02-09T22:08:10.0530Z
 layout: post
 path: "/test-markdown/"
 ---

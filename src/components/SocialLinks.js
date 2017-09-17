@@ -1,25 +1,32 @@
 import React from "react";
 import styled from "styled-components";
-import Link from "gatsby-link";
 import breakpoint from "../styled/breakpoint";
 
-const SocialLinks = () =>
+const SocialLinks = () => (
   <SocialNav>
     <Wrapper>
       <SocialLink>
-        <LinkWrapper to="https://www.twitter.com/rvgpl">Twitter</LinkWrapper>
+        <LinkWrapper href="https://www.twitter.com/rvgpl">Twitter</LinkWrapper>
       </SocialLink>
       <SocialLink>
-        <LinkWrapper to="http://www.instagram.com/rvgpl">Instagram</LinkWrapper>
+        <LinkWrapper href="http://www.instagram.com/rvgpl">
+          Instagram
+        </LinkWrapper>
       </SocialLink>
       <SocialLink>
-        <LinkWrapper to="https://www.github.com/rvgpl">Github</LinkWrapper>
+        <LinkWrapper href="https://www.github.com/rvgpl">Github</LinkWrapper>
       </SocialLink>
       <SocialLink>
-        <LinkWrapper to="http://www.flickr.com/rvgpl">Flickr</LinkWrapper>
+        <LinkWrapper href="http://www.flickr.com/rvgpl">Flickr</LinkWrapper>
+      </SocialLink>
+      <SocialLink>
+        <LinkWrapper href="mailto:kesariravigopal@gmail.com?Subject=Hello">
+          Email
+        </LinkWrapper>
       </SocialLink>
     </Wrapper>
-  </SocialNav>;
+  </SocialNav>
+);
 
 // Styles
 const SocialNav = styled.nav`margin: 4rem auto;`;
@@ -38,23 +45,25 @@ const Wrapper = styled.ul`
 
 const SocialLink = styled.li`
   ${breakpoint.tablet`
-      margin-right: 0.8rem;
+      margin-right: 1.6rem;
     `};
 `;
 
-const LinkWrapper = styled(Link)`
-     cursor: pointer;
-     font-size: 1.6rem;
-     font-family: ${props => props.theme.primaryTypeface};
-     color:  ${props => props.theme.socialNavColor};
-     background-color: ${props => props.theme.socialNavBG};
-     transition: color .15s ease-in;
-     transition: background-color .15s ease-in-out;
+const LinkWrapper = styled.a`
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-family: ${props => props.theme.primaryTypeface};
+  letter-spacing: ${props => props.theme.primaryTypefaceLetterSpacing};
+  color: ${props => props.theme.socialNavColor};
+  background-image: linear-gradient(120deg, gold 0%, gold 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.5rem;
+  background-position: 0 88%;
+  transition: background-size 0.25s ease-in;
 
-     &:hover,
-     &:focus {
-       background-color:  ${props => props.theme.socialNavHoverColor}
-     }
-  `;
-
+  &:hover,
+  &:focus {
+    background-size: 100% 88%;
+  }
+`;
 export default SocialLinks;

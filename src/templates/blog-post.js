@@ -12,9 +12,7 @@ const BlogPostTemplate = props => {
   return (
     <Container>
       <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
-      <Title>
-        {post.frontmatter.title}
-      </Title>
+      <Title>{post.frontmatter.title}</Title>
       <Article
         // eslint-disable-next-line
         dangerouslySetInnerHTML={{ __html: post.html }}

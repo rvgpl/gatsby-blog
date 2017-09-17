@@ -1,7 +1,4 @@
-import { injectGlobal } from "styled-components";
 
-// Global styles
-const resetCSS = () => injectGlobal`
   html {
     font-size: 62.5%;
     box-sizing: border-box;
@@ -32,6 +29,23 @@ const resetCSS = () => injectGlobal`
     background: none;
     cursor: pointer;
   }
-`;
 
-export default resetCSS;
+  .site-logo {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+    stroke: currentColor;
+  }
+
+  @keyframes draw {
+    0% {
+      fill: transparent;
+      stroke-dashoffset: 1000;
+      stroke-width: 2px;
+    }
+
+    100% {
+      fill: currentColor;
+      stroke-dashoffset: 0;
+      stroke-width: 1px;
+    }
+  }

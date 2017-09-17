@@ -17,13 +17,9 @@ const Writing = props => {
       const pageLink = (
         <BlogListItem key={title}>
           <PostTitle>
-            <Link to={post.node.frontmatter.path}>
-              {title}
-            </Link>
+            <Link to={post.node.frontmatter.path}>{title}</Link>
           </PostTitle>
-          <PostDate>
-            {date}
-          </PostDate>
+          <PostDate>{date}</PostDate>
         </BlogListItem>
       );
 
@@ -34,9 +30,7 @@ const Writing = props => {
   return (
     <Container>
       <Helmet title={Writing} />
-      <BlogList>
-        {pageLinks}
-      </BlogList>
+      <BlogList>{pageLinks}</BlogList>
     </Container>
   );
 };
@@ -51,7 +45,8 @@ export const pageQuery = graphql`
           frontmatter {
             path
             title
-            date
+            intro
+            date(formatString: "MMMM DD, YYYY")
           }
         }
       }

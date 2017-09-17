@@ -4,19 +4,20 @@ import styled from "styled-components";
 import Container from "../styled/container";
 import Logo from "./Logo";
 
-const Header = () =>
+const Header = () => (
   <HeaderWrapper>
     <HeaderContainer>
       <Link to={"/"}>
         <Logo />
       </Link>
       <Nav>
-        <NavItem to={"/"}> Articles </NavItem>
+        <NavItem to={"/writing"}> Writing </NavItem>
         <NavItem to={"/"}> Photos </NavItem>
         <NavItem to={"/about"}> About </NavItem>
       </Nav>
     </HeaderContainer>
-  </HeaderWrapper>;
+  </HeaderWrapper>
+);
 
 // Styles
 const HeaderWrapper = styled.header`margin: 4rem auto;`;
@@ -34,7 +35,7 @@ const Nav = styled.nav`
 `;
 
 const NavItem = styled(Link)`
-  font-family: Lora, Georgia, serif;
+  font-family: ${props => props.theme.primaryTypeface};
   padding: 1rem;
   font-size: 1.6rem;
   line-height: 2rem;
@@ -63,6 +64,5 @@ const HeaderContainer = styled(Container)`
   @media (min-width: 800px) {
     flex-direction: row;
   }
-
 `;
 export default Header;

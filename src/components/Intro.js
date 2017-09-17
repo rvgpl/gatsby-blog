@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import breakpoint from "../styled/breakpoint";
 
-const Intro = () =>
+const Intro = () => (
   <Wrapper>
     <Hello>Hello</Hello>
     <Text>
-      My name is <strong>Ravigopal Kesari</strong>, visual enthusiast and a
+      I&apos;m <Name>Ravigopal Kesari</Name>,<br /> a visual enthusiast and
       software engineer who <del>makes</del> crafts websites and applications.
     </Text>
 
@@ -15,7 +15,8 @@ const Intro = () =>
       and lightning fast. I am interested in building systems, photography and
       cycling.
     </TextSmall>
-  </Wrapper>;
+  </Wrapper>
+);
 
 const Wrapper = styled.section`
   margin-top: 5rem;
@@ -31,8 +32,21 @@ const Hello = styled.small`
   letter-spacing: 0.16rem;
 `;
 
+const Name = styled.strong`
+  background-image: linear-gradient(to right, gold 0%, gold 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.5rem;
+  background-position: 0 88%;
+  transition: background-size 0.25s ease-in;
+
+  &:hover,
+  &:focus {
+    background-size: 100% 88%;
+  }
+`;
 const Text = styled.p`
   font-family: ${props => props.theme.primaryTypeface};
+  letter-spacing: -1.5px;
   font-weight: 700;
   font-size: 3.2rem;
   line-height: 1.25;
@@ -46,7 +60,7 @@ const Text = styled.p`
 const TextSmall = styled(Text)`
   font-size: 1.8rem;
   line-height: 1.5;
-
+  letter-spacing: -0.85px;
   ${breakpoint.tablet`
     font-size: 2.4rem;
 `};
