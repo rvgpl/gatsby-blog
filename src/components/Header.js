@@ -2,7 +2,7 @@ import React from "react";
 import Link from "gatsby-link";
 import styled from "styled-components";
 import Container from "../styled/container";
-import Logo from './Logo';
+import Logo from "./Logo";
 
 const Header = () =>
   <HeaderWrapper>
@@ -19,9 +19,7 @@ const Header = () =>
   </HeaderWrapper>;
 
 // Styles
-const HeaderWrapper = styled.header`
-  margin: 4rem auto;
-`;
+const HeaderWrapper = styled.header`margin: 4rem auto;`;
 
 const Nav = styled.nav`
   padding: 1rem;

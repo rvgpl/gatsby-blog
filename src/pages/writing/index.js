@@ -3,13 +3,10 @@ import Helmet from "react-helmet";
 import get from "lodash/get";
 import Link from "gatsby-link";
 import styled from "styled-components";
-import Container from "../styled/container";
-import Intro from "../components/Intro";
-import SocialLinks from "../components/SocialLinks";
+import Container from "../../styled/container";
 
-const Home = props => {
+const Writing = props => {
   const pageLinks = [];
-  const siteTitle = get(props, "data.site.siteMetadata.title");
   const posts = get(props, "data.allMarkdownRemark.edges");
 
   posts.forEach(post => {
@@ -36,10 +33,7 @@ const Home = props => {
 
   return (
     <Container>
-      <Helmet title={siteTitle} />
-      <Intro />
-      <SocialLinks />
-      <hr />
+      <Helmet title={Writing} />
       <BlogList>
         {pageLinks}
       </BlogList>
@@ -47,19 +41,11 @@ const Home = props => {
   );
 };
 
-export default Home;
+export default Writing;
 
 export const pageQuery = graphql`
-  query IndexQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      limit: 2
-    ) {
+  query allPosts {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
           frontmatter {

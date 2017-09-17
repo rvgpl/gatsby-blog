@@ -1,8 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 import Link from "gatsby-link";
+import breakpoint from "../styled/breakpoint";
 
-const SocialLinks = (props) =>
+const SocialLinks = () =>
   <SocialNav>
     <Wrapper>
       <SocialLink>
@@ -18,24 +19,30 @@ const SocialLinks = (props) =>
         <LinkWrapper to="http://www.flickr.com/rvgpl">Flickr</LinkWrapper>
       </SocialLink>
     </Wrapper>
-  </SocialNav>
+  </SocialNav>;
 
-  // Styles
-  const SocialNav = styled.nav`
-    margin: 4rem auto;
-  `;
+// Styles
+const SocialNav = styled.nav`margin: 4rem auto;`;
 
-  const Wrapper = styled.ul`
-    padding: 0;
-    list-style-type: none;
-  `;
+const Wrapper = styled.ul`
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  const SocialLink = styled.li`
-    display: inline-block;
-    margin-right: 0.8rem;  
-  `;
+  ${breakpoint.tablet`
+      justify-content: start;
+    `};
+`;
 
-  const LinkWrapper = styled(Link)`
+const SocialLink = styled.li`
+  ${breakpoint.tablet`
+      margin-right: 0.8rem;
+    `};
+`;
+
+const LinkWrapper = styled(Link)`
      cursor: pointer;
      font-size: 1.6rem;
      font-family: ${props => props.theme.primaryTypeface};
@@ -50,4 +57,4 @@ const SocialLinks = (props) =>
      }
   `;
 
-  export default SocialLinks;
+export default SocialLinks;
