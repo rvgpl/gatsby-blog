@@ -2,18 +2,16 @@ import React from "react";
 import Link from "gatsby-link";
 import styled from "styled-components";
 import Container from "../styled/container";
-import Logo from "./Logo";
 
 const Header = () => (
   <HeaderWrapper>
     <HeaderContainer>
-      <Link to={"/"}>
-        <Logo />
-      </Link>
+      <Logo to={"/"}>{`< rvgpl />`}</Logo>
+
       <Nav>
-        <NavItem to={"/writing"}> Writing </NavItem>
-        <NavItem to={"/"}> Photos </NavItem>
         <NavItem to={"/about"}> About </NavItem>
+        <NavItem to={"/blog"}> Blog </NavItem>
+        <NavItem to={"/"}> Photos </NavItem>
       </Nav>
     </HeaderContainer>
   </HeaderWrapper>
@@ -21,6 +19,15 @@ const Header = () => (
 
 // Styles
 const HeaderWrapper = styled.header`margin: 4rem auto;`;
+
+const Logo = styled(Link)`
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: monospace;
+  color: #1d3653;
+  text-shadow: none;
+  background-image: none;
+`;
 
 const Nav = styled.nav`
   padding: 1rem;
@@ -35,9 +42,9 @@ const Nav = styled.nav`
 `;
 
 const NavItem = styled(Link)`
-  font-family: ${props => props.theme.primaryTypeface};
+  font-family: monospace;
   padding: 1rem;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   line-height: 2rem;
   font-weight: bold;
   text-decoration: none;
@@ -45,11 +52,9 @@ const NavItem = styled(Link)`
   transition: all 0.3s;
   color: black;
   letter-spacing: 1px;
+  text-shadow: none;
+  background-image: none;
 
-  &:hover {
-    color: white;
-    background-color: red;
-  }
   @media (min-width: 800px) {
     margin: 0 10px;
   }

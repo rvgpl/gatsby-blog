@@ -1,7 +1,8 @@
 export default () => ({
-  primary: "#FF3B30",
+  primaryColor: "#1d3653",
   background: "#FAFAFA",
-  primaryTypeface: "Georgia, serif;",
+  primaryTypeface: "Lora, serif;",
+  georgiaTypeface: "Georgia, serif;",
   primaryTypefaceLetterSpacing: "0.4px",
   socialNavColor: "#111",
   socialNavHoverColor: "gold",

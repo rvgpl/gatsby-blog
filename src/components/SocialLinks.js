@@ -35,15 +35,18 @@ const Wrapper = styled.ul`
   padding: 0;
   list-style-type: none;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: start;
+  flex-direction: column;
 
   ${breakpoint.tablet`
-      justify-content: start;
+      flex-direction: row;
+      align-items: center;
     `};
 `;
 
 const SocialLink = styled.li`
+  margin-top: 0.8rem;
+
   ${breakpoint.tablet`
       margin-right: 1.6rem;
     `};
@@ -60,6 +63,7 @@ const LinkWrapper = styled.a`
   background-size: 100% 0.5rem;
   background-position: 0 88%;
   transition: background-size 0.25s ease-in;
+  text-shadow: none;
 
   &:hover,
   &:focus {

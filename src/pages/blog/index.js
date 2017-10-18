@@ -3,18 +3,16 @@ import Helmet from "react-helmet";
 import get from "lodash/get";
 import Link from "gatsby-link";
 import styled from "styled-components";
-import Container from "../styled/container";
-import Intro from "../components/Intro";
-import SocialLinks from "../components/SocialLinks";
+import Container from "../../styled/container";
 
-const Home = props => {
+const Blog = props => {
   const pageLinks = [];
-  const siteTitle = get(props, "data.site.siteMetadata.title");
   const posts = get(props, "data.allMarkdownRemark.edges");
 
   posts.forEach(post => {
     if (post.node.path !== "/404/") {
       const title = get(post, "node.frontmatter.title", post.node.path);
+      const date = get(post, "node.frontmatter.date");
       const intro = get(post, "node.frontmatter.intro", "");
       const pageLink = (
         <BlogListItem key={title}>
@@ -31,30 +29,22 @@ const Home = props => {
 
   return (
     <Container>
-      <Helmet title={siteTitle} />
-      <Intro />
-      <SocialLinks />
-      <hr />
+      <Helmet title={Blog} />
       <BlogList>
-        <BlogListTitle>Latest Posts</BlogListTitle>
+        <BlogListTitle>Posts</BlogListTitle>
         {pageLinks}
       </BlogList>
     </Container>
   );
 };
 
-export default Home;
+export default Blog;
 
 export const pageQuery = graphql`
-  query IndexQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
+  query allPosts {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
-      limit: 2
+      limit: 100
     ) {
       edges {
         node {
@@ -116,4 +106,8 @@ const StyledLink = styled(Link)`
   &:focus {
     background-size: 100% 88%;
   }
+`;
+const PostDate = styled.time`
+  font-size: 1.4rem;
+  color: #777;
 `;

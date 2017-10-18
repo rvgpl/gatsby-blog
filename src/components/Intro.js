@@ -6,7 +6,7 @@ const Intro = () => (
   <Wrapper>
     <Hello>Hello</Hello>
     <Text>
-      I&apos;m <Name>Ravigopal Kesari</Name>,<br /> a visual enthusiast and
+      My name is <Name>Ravigopal Kesari</Name>,<br /> a visual enthusiast and
       software engineer who <del>makes</del> crafts websites and applications.
     </Text>
 
@@ -33,6 +33,7 @@ const Hello = styled.small`
 `;
 
 const Name = styled.strong`
+  display: inline-block;
   background-image: linear-gradient(to right, gold 0%, gold 100%);
   background-repeat: no-repeat;
   background-size: 100% 0.5rem;
@@ -51,6 +52,7 @@ const Text = styled.p`
   font-size: 3.2rem;
   line-height: 1.25;
   margin: 0.8rem auto 0 auto;
+  padding-bottom: 1rem;
 
   ${breakpoint.tablet`
     font-size: 4.8rem;
