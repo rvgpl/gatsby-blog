@@ -12,14 +12,13 @@ const Blog = props => {
   posts.forEach(post => {
     if (post.node.path !== "/404/") {
       const title = get(post, "node.frontmatter.title", post.node.path);
-      const date = get(post, "node.frontmatter.date");
       const intro = get(post, "node.frontmatter.intro", "");
       const pageLink = (
         <BlogListItem key={title}>
           <PostTitle>
             <StyledLink to={post.node.frontmatter.path}>{title}</StyledLink>
           </PostTitle>
-          <PostExcerpt>{intro}</PostExcerpt>
+          <PostExcerpt dangerouslySetInnerHTML={{ __html: intro }} />
         </BlogListItem>
       );
 
@@ -51,7 +50,6 @@ export const pageQuery = graphql`
           frontmatter {
             path
             title
-            date(formatString: "MMMM DD, YYYY")
             intro
           }
         }

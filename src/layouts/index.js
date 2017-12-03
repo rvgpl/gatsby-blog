@@ -13,7 +13,7 @@ const Template = props => {
       <div>
         <Header />
         {children()}
-        <Footer />
+        { /**<Footer /> */}
       </div>
     </ThemeProvider>
   );

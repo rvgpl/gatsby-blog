@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import breakpoint from "../styled/breakpoint";
+import SectionTitle from "../styled/SectionTitle";
 
 const Intro = () => (
   <Wrapper>
-    <Hello>Hello</Hello>
+    <SectionTitle>Hello</SectionTitle>
     <Text>
       My name is <Name>Ravigopal Kesari</Name>,<br /> a visual enthusiast and
       software engineer who <del>makes</del> crafts websites and applications.
@@ -26,11 +27,6 @@ const Wrapper = styled.section`
   `};
 `;
 
-const Hello = styled.small`
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16rem;
-`;
 
 const Name = styled.strong`
   display: inline-block;

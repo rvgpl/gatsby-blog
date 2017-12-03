@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Blog"
+    title: "Ravigopal Kesari",
+    description: "Personal Website of Ravigopal Kesari | rvgpl"
   },
-  pathPrefix: `/gatsby-blog`,
+  pathPrefix: `/`,
   plugins: [
     {
       resolve: "gatsby-source-filesystem",
@@ -21,7 +22,15 @@ module.exports = {
         ]
       }
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-110583140-1",
+        anonymize: true,
+      },
+    },
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-styled-components"
+    "gatsby-plugin-styled-components",
+    "gatsby-plugin-react-helmet",
   ]
 };

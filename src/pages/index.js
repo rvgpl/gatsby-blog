@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Container from "../styled/container";
 import Intro from "../components/Intro";
 import SocialLinks from "../components/SocialLinks";
+import SectionTitle from "../styled/SectionTitle";
 
 const Home = props => {
   const pageLinks = [];
@@ -21,7 +22,7 @@ const Home = props => {
           <PostTitle>
             <StyledLink to={post.node.frontmatter.path}>{title}</StyledLink>
           </PostTitle>
-          <PostExcerpt>{intro}</PostExcerpt>
+          <PostExcerpt dangerouslySetInnerHTML={{ __html: intro }} />
         </BlogListItem>
       );
 
@@ -31,14 +32,19 @@ const Home = props => {
 
   return (
     <Container>
-      <Helmet title={siteTitle} />
+    
+      <Helmet>
+       <title>{siteTitle}</title>
+       <meta name="description" content={get(this, 'props.data.site.siteMetadata.description')} />
+      </Helmet>
+
       <Intro />
       <SocialLinks />
       <hr />
-      <BlogList>
-        <BlogListTitle>Latest Posts</BlogListTitle>
+      { /** <BlogList>
+        <SectionTitle>Latest Posts</SectionTitle>
         {pageLinks}
-      </BlogList>
+      </BlogList> */}
     </Container>
   );
 };
@@ -61,7 +67,6 @@ export const pageQuery = graphql`
           frontmatter {
             path
             title
-            date(formatString: "MMMM DD, YYYY")
             intro
           }
         }
@@ -79,12 +84,6 @@ const BlogList = styled.ul`
 const BlogListItem = styled.li`
   padding: 1.6rem 0;
   dispaly: block;
-`;
-
-const BlogListTitle = styled.small`
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16rem;
 `;
 
 const PostTitle = styled.h3`
